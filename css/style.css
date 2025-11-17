@@ -1,0 +1,1028 @@
+.logo-link {
+  display: flex;
+  /* ALINIAZĂ ELEMENTELE (logo + nume) */
+  align-items: center;
+  /* Centrează-le vertical */
+  /* Adaugă spațiu între logo și nume */
+
+  /* Scoate stilurile implicite ale link-ului */
+  text-decoration: none;
+}
+
+.nume-prenume,
+.nume-nume {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333; /* sau var(--text-color) */
+}
+
+/* Adaugă spațiu între prenume și nume */
+.nume-nume {
+  margin-left: 0.4rem;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  /* Un gri foarte deschis pentru fundal */
+  color: #333;
+  /* Un gri închis pentru text, mai ușor de citit decât negru pur */
+}
+
+/* Mai întâi, metoda Firefox pentru 'html' sau 'body' */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #0056b3 #f0f0f0;
+  /* Culorile tale de accent */
+}
+
+/* Apoi, metoda WebKit pentru aceleași browsere */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0056b3;
+  border-radius: 4px;
+}
+
+/* --- Header & Navigare --- */
+header {
+  background-color: #fff;
+  /* Fundal alb pentru header */
+  padding: 1rem 2rem;
+  /* 1rem sus/jos, 2rem stânga/dreapta */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  /* O linie subtilă de separare */
+  border-radius: 8px;
+}
+
+header img {
+  height: 50px;
+  display: block;
+}
+
+header img:hover {
+  color: #f4f4f4;
+}
+
+nav ul {
+  list-style: none;
+  /* Elimină bulinele de la listă */
+  display: flex;
+  /* Folosim Flexbox și aici! */
+  gap: 1.5rem;
+  /* Adaugă spațiu *între* itemii din meniu */
+}
+
+.about-container {
+  display: flex;
+  /* Activează Flexbox */
+
+  /* --- AICI ESTE MAGIA --- */
+  /* Aliniază toți copiii (imaginea și textul) la baza containerului */
+  align-items: center;
+
+  /* Adaugă spațiu între imagine și text (înlocuiește vechiul margin) */
+  gap: 20px;
+}
+
+.educatie-lista {
+  display: flex;
+  flex-direction: column;
+  /* Rândurile vor sta unul sub altul */
+
+  /* "Frumos spațiat": adaugă spațiu vertical între rânduri */
+  gap: 2.5rem;
+}
+
+/* Rândul individual (Text + Imagine) */
+.educatie-item {
+  display: flex;
+
+  /* Aliniere verticală la centru, cum am stabilit */
+  align-items: center;
+
+  /* Spațiu între text și imagine */
+  gap: 2rem;
+
+  /* O linie de separare subtilă */
+  padding-bottom: 0;
+
+}
+
+/* Scoate linia de la ultimul rând */
+.educatie-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Partea cu textul din rând */
+.educatie-text {
+  flex: 1;
+  /* Dă textului 2 părți din spațiu (mai mult spațiu) */
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+
+/* Stilul textului (pe care îl aveai deja în <dl>) */
+.educatie-text dt {
+  font-weight: bold;
+  font-size: 1.2rem;
+  /* Puțin mai mare să iasă în evidență */
+  color: #333;
+}
+
+.educatie-text dd {
+  margin-left: 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Partea cu imaginea din rând */
+.educatie-imagine {
+  flex: 1;
+  /* Dă imaginii 1 parte din spațiu (mai puțin spațiu) */
+  display: flex;
+  justify-content: flex-end;
+  /* Aliniază imaginea spre dreapta */
+}
+
+.educatie-imagine img {
+  width: 100%;
+  /* O lățime maximă ca să nu fie uriașă */
+  width: 300px;
+  height: auto;
+  /* Stilurile de imagine pe care le-ai creat deja */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.educatie-imagine img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Specifică cum se comportă imaginea în containerul flex */
+.about-container img {
+  /* Stilurile mutate de la 'main img' */
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Stilul care era deja aici */
+  flex-shrink: 0;
+}
+
+.about-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Specifică cum se comportă paragraful în containerul flex */
+.about-container p {
+  /* 'flex: 1' înseamnă "ocupă restul spațiului disponibil pe rând" */
+  flex: 1;
+}
+
+nav ul li a {
+  text-decoration: none;
+  /* Elimină sublinierea link-urilor */
+  color: #333;
+  font-weight: bold;
+  /* Text îngroșat */
+  font-size: 1rem;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+  /* O tranziție lină pentru hover */
+  position: relative;
+  /* Necesar pentru a ancora pseudo-elementul */
+  padding-bottom: 5px;
+  /* Împinge textul în sus ca să facă loc liniei */
+}
+
+/* :hover este o 'pseudo-clasă' - se activează la mouse-over */
+nav ul li a:hover {
+  color: #007bff;
+  /* O culoare de accent (albastru) */
+}
+
+nav ul li a::after,
+footer a::after {
+  content: "";
+  /* Obligatoriu pentru pseudo-elemente */
+  position: absolute;
+
+  /* Stilul liniei */
+  height: 2px;
+  /* Grosimea liniei */
+  background-color: #007bff;
+  /* Culoarea liniei */
+
+  /* Poziționarea (AICI E MAGIA) */
+  width: 0;
+  /* Începe invizibilă (fără lățime) */
+  left: 0;
+  bottom: 0;
+  /* <-- AICI SETEZI SPAȚIEREA! 
+                (0 = lipit de padding; -5px = mai jos) */
+
+  /* Animația */
+  transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after,
+nav ul li.active a::after,
+footer a:hover::after {
+  width: 100%;
+  /* Face linia vizibilă la lățime completă */
+}
+
+/* (Opțional) Păstrează și schimbarea culorii textului */
+nav ul li a:hover,
+nav ul li.active a {
+  color: #007bff;
+}
+
+main {
+  max-width: 1000px;
+  /* Conținutul nu va fi niciodată mai lat de 900px */
+  margin: 2rem auto;
+  /* 2rem sus/jos, 'auto' stânga/dreapta */
+  padding: 2rem;
+  background-color: #fff;
+  /* Fundal alb pentru "cardul" de conținut */
+  border-radius: 8px;
+  /* Colțuri rotunjite */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  /* O umbră subtilă */
+}
+
+section {
+  margin-bottom: 2rem;
+  /* Spațiu între secțiunile "Educație", "Competențe" etc. */
+}
+
+h1,
+h2 {
+  margin-bottom: 1rem;
+  color: #0056b3;
+  /* Un albastru mai închis pentru titluri */
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 2rem 0;
+  /* Spațiu deasupra și dedesubtul liniei */
+}
+
+dt {
+  /* Definition Term - ex: "Colegiul Național..." */
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+dd {
+  /* Definition Description - ex: "Sept 2020..." */
+  margin-left: 0;
+  /* Anulăm indentarea implicită */
+  margin-bottom: 1rem;
+  /* Spațiu sub fiecare intrare */
+  color: #555;
+}
+
+.competente table {
+  width: 100%;
+  /* Tabelul va ocupa toată lățimea containerului 'main' */
+  border-collapse: collapse;
+  /* Îmbină bordurile celulelor */
+  margin-bottom: 1rem;
+  /* Spațiu sub fiecare tabel */
+}
+
+/* Aici selectăm 'th' (table header) ȘI 'td' (table data/cell) */
+.competente th,
+.competente td {
+  border: 1px solid #ddd;
+  /* O bordură gri, mai subtilă */
+  padding: 12px;
+  /* Spațiu în interiorul fiecărei celule */
+  text-align: left;
+  /* Aliniază textul la stânga */
+}
+
+.competente th {
+  background-color: #f9f9f9;
+  /* Un fundal ușor gri pentru headere */
+  font-weight: bold;
+}
+
+.competente caption {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #282626;
+  color: #f4f4f4;
+  margin-top: 2rem;
+  /* Spațiu între main și footer */
+
+  /* Putem folosi Flexbox și aici pentru aliniere perfectă */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+footer small {
+  width: 100%;
+  /* Forțează tag-ul să ocupe toată lățimea */
+}
+
+footer a {
+  color: #ffffff;
+  /* Link-uri albe pe fundal închis */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 5px;
+  /* Spațiu sub iconițe/text (poți ajusta valoarea) */
+}
+
+footer a:hover {
+  color: #007bff;
+}
+
+footer svg {
+  width: 1.5rem;
+  /* Aprox. 29px. Mărește sau micșorează după cum dorești */
+  height: 1.5rem;
+  /* Păstrează-le egale ca să fie pătrate */
+  display: block;
+  padding-bottom: 3px;
+}
+
+footer address {
+  display: contents;
+}
+
+.formular-contact {
+  display: block;
+}
+
+.formular-contact label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.formular-contact label:first-of-type {
+  margin-top: 0;
+}
+
+.formular-contact input[type="text"],
+.formular-contact textarea {
+  width: 100%;
+  /* Câmpurile ocupă toată lățimea containerului */
+  padding: 0.75rem;
+  /* Spațiu interior generos */
+  border: 1px solid #ddd;
+  /* Bordură gri, subtilă */
+  border-radius: 4px;
+  /* Colțuri rotunjite, ca în restul design-ului */
+  font-family: inherit;
+  /* Moștenește fontul din 'body' */
+  font-size: 1rem;
+  box-sizing: border-box;
+  /* Asigură că padding-ul nu afectează lățimea totală */
+  resize: none;
+}
+
+.formular-contact textarea {
+  min-height: 10rem;
+  /* Setează o înălțime minimă, de ex. 150 pixeli */
+  /* Poți folosi 'height' în loc de 'min-height' dacă vrei o înălțime fixă */
+}
+
+.formular-contact input[type="text"]:focus,
+.formular-contact textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.formular-contact .form-buttons {
+  display: flex;
+
+  /* Aliniază butoanele la dreapta */
+  justify-content: flex-end;
+
+  /* Adaugă spațiu între butoane */
+  gap: 1rem;
+
+  /* Mută spațiul de sus de pe butoane pe container */
+  margin-top: 1.5rem;
+}
+
+.formular-contact input[type="submit"],
+.formular-contact input[type="reset"] {
+  /* Stilul de bază pe care îl aveai */
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+
+  /* Stilul nou, "awesome" */
+  padding: 0.8rem 1.75rem;
+  /* Padding puțin mai mare */
+  border-radius: 8px;
+  /* Colțuri mai rotunjite */
+
+  /* Gradientul și animația */
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  background-size: 250% 250%;
+  box-shadow: 0 5px 15px rgba(0, 86, 179, 0.25);
+
+  /* Tranziția nouă */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.4s ease;
+}
+
+/* Efectul de hover combinat */
+.formular-contact input[type="submit"]:hover,
+.formular-contact input[type="reset"]:hover {
+  /* Efectul nou "awesome" */
+  transform: translateY(-4px);
+  /* Ridică butonul */
+  box-shadow: 0 8px 20px rgba(0, 86, 179, 0.35);
+  /* Mărește umbra */
+  background-position: right center;
+  /* Animă gradientul */
+}
+
+.video-fundal {
+  /* Poziționare: Fixat pe ecran, indiferent de scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* 100% din lățimea ecranului */
+  height: 100vh;
+  /* 100% din înălțimea ecranului */
+
+  /* TRUCUL MAJOR: Îl trimite în spatele la absolut tot */
+  z-index: -1;
+
+  /* Previne orice bară de scroll nedorită */
+  overflow: hidden;
+}
+
+.video-fundal video {
+  /* Asigură-te că video-ul umple containerul */
+  width: 100%;
+  height: 100%;
+
+  /* Decupează video-ul pentru a umple spațiul, păstrând proporțiile.
+    Echivalentul lui 'background-size: cover' pentru imagini.
+    */
+  object-fit: cover;
+}
+
+/* RECOMANDAT: O suprapunere (overlay)
+Textul peste un video poate fi greu de citit. 
+O suprapunere întunecată rezolvă asta.
+*/
+.video-fundal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Suprapunere neagră cu 50% transparență */
+  /* Schimbă aici culoarea sau opacitatea */
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Asigură-te că restul conținutului tău 
+(care oricum are fundal alb) stă deasupra.
+*/
+header,
+main,
+footer {
+  /* 'position: relative' este necesar pentru ca 'z-index' să funcționeze */
+  position: relative;
+
+  /* Poți să-i dai 'z-index: 1' dacă întâmpini probleme, 
+       dar de obicei nu e nevoie. */
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Ascundem iconița hamburger pe desktop */
+.hamburger-icon {
+  display: none;
+  /* Va fi afișat doar pe mobil */
+  cursor: pointer;
+}
+
+.hobby-grid {
+  display: grid;
+  /* Folosim CSS Grid! 
+    Creează automat coloane care au minim 300px, 
+    dar se întind (1fr) pentru a umple spațiul.
+    Se adaptează singur pe mobil!
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  /* Spațiu între carduri */
+}
+
+/* 2. CARDUL (Containerul pentru 3D) */
+.hobby-card {
+  background-color: transparent;
+  height: 350px;
+  /* Setează o înălțime fixă */
+  border-radius: 10px;
+  /* AICI E MAGIA 3D: Setează "adâncimea" scenei */
+  perspective: 1000px;
+
+  position: relative;
+  /* Necesar pentru z-index */
+  z-index: 1;
+  /* Setează un context de bază */
+}
+
+/* 3. PARTEA CARE SE ROTEȘTE */
+.hobby-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  /* Durata rotației */
+  /* Asta spune browserului să păstreze elementele în 3D */
+  transform-style: preserve-3d;
+  box-shadow: 10px 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* 4. ACȚIUNEA LA HOVER */
+.hobby-card:hover .hobby-card-inner {
+  /* Când pui mouse-ul, rotește-l 180 de grade pe axa Y */
+  transform: rotateY(180deg);
+}
+
+.hobby-card:hover {
+  z-index: 10;
+  /* Un număr mai mare decât cel de bază (1) */
+}
+
+/* 5. FAȚA ȘI SPATELE (Stil comun) */
+.hobby-card-front,
+.hobby-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Ascunde fața care nu e vizibilă (ex: spatele cardului când e pe față) */
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  /* Ca să taie colțurile imaginii */
+}
+
+/* 6. STILUL PENTRU FAȚĂ */
+.hobby-card-front {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  /* Pune titlul sub imagine */
+}
+
+.hobby-card-front img {
+  width: 100%;
+  height: 80%;
+  /* Imaginea ocupă 80% din card */
+  object-fit: cover;
+  /* Decupează imaginea frumos */
+}
+
+.hobby-card-front h3 {
+  text-align: center;
+  margin: auto;
+  /* Centrează textul vertical în spațiul rămas */
+  color: #333;
+  font-size: 1.25rem;
+}
+
+/* 7. STILUL PENTRU SPATE */
+.hobby-card-back {
+  /* Folosim culoarea ta de accent */
+  background-color: #0056b3;
+  color: white;
+  padding: 1.5rem;
+  /* Începe deja rotit, ca să fie pe "spate" */
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hobby-card-back h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #fff;
+  /* Linie sub titlu */
+  padding-bottom: 0.25rem;
+}
+
+.hobby-card-back p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.portofoliu-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 360px;
+  /* Lățimea cardului */
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 2rem 1rem;
+
+  /* (Bonus) Stilizare scrollbar */
+  scrollbar-width: thin;
+  /* Pentru Firefox */
+  scrollbar-color: #0056b3 #f0f0f0;
+  /* Pentru Firefox */
+}
+
+.portofoliu-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.portofoliu-container::-webkit-scrollbar-thumb {
+  background-color: #0056b3;
+  border-radius: 4px;
+}
+
+.portofoliu-container::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+
+/* 2. CARDUL DE PROIECT (Baza efectului) */
+.proiect-card {
+  height: 300px;
+  /* Setează o înălțime fixă pentru card */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  text-decoration: none;
+  color: #333;
+
+  /* CHEIA 1: Ascunde tot ce iese din card */
+  overflow: hidden;
+  /* CHEIA 2: Devine ancoră pentru .proiect-continut */
+  position: relative;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.proiect-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. IMAGINEA DIN FUNDAL */
+.proiect-imagine img {
+  width: 100%;
+  height: 100%;
+  /* Imaginea umple tot cardul */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease-out;
+  /* Tranziție pentru zoom */
+}
+
+/* Bonus: Mărește imaginea la hover */
+.proiect-card:hover .proiect-imagine img {
+  transform: scale(1.05);
+}
+
+/* 4. CONȚINUTUL CU TEXT (Partea care "Rasare") */
+.proiect-continut {
+  /* CHEIA 3: E scos din flux și pus peste imagine */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.9);
+  /* Fundal alb, ușor transparent */
+  /* (Alternativă) Efect "blur" pe fundal, arată și mai bine */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* Pentru Safari */
+
+  padding: 1rem 1.5rem;
+  box-sizing: border-box;
+  /* Ca padding-ul să nu strice lățimea */
+
+  /* CHEIA 4: Textul e ascuns jos, lăsând doar titlul (60px) vizibil */
+  transform: translateY(calc(100% - 60px));
+
+  transition: transform 0.4s ease-in-out;
+}
+
+/* 5. ACȚIUNEA LA HOVER: Textul "Rasare" */
+.proiect-card:hover .proiect-continut {
+  /* Glisează în sus ca să se vadă tot */
+  transform: translateY(0);
+}
+
+/* 6. STILIZAREA TEXTULUI */
+.proiect-continut h3 {
+  margin: 0;
+  color: #0056b3;
+  height: 60px;
+  /* Înălțimea barei vizibile */
+
+  /* Asigură că padding-ul e în interiorul celor 60px */
+  box-sizing: border-box;
+}
+
+.proiect-continut p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* "Bulinele" cu tehnologii */
+.proiect-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.proiect-tech span {
+  background: #e9ecef;
+  color: #495057;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+
+  /* 1. Facem header-ul vertical */
+  header {
+    /* Pe mobil, NU mai vrem 'flex-direction: column' */
+    /* Păstrăm totul pe un rând */
+    flex-direction: row;
+    justify-content: space-between;
+    /* Logo stânga, Burger dreapta */
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* 2. REGULI NOI PENTRU ICONIȚA BURGER */
+  .hamburger-icon {
+    display: flex;
+    /* Afișăm burgerul pe mobil */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2.5rem;
+    /* ~40px */
+    height: 2.5rem;
+    /* ~40px */
+    padding: 0.25rem;
+    z-index: 1001;
+    /* Să fie deasupra meniului închis */
+  }
+
+  .hamburger-icon .line {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    /* Culoarea liniilor */
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  nav {
+    /* Poziționăm meniul peste tot ecranul, ascuns în dreapta */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    /* Ocupă 80% din ecran */
+    height: 100vh;
+    /* Toată înălțimea */
+    background-color: #fff;
+    z-index: 1000;
+    /* Sub iconița burger */
+
+    /* Aici e trucul: e ascuns în afara ecranului */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+
+    /* Asigură-te că nav-ul poate conține lista */
+    display: block;
+    padding-top: 6rem;
+    /* Spațiu sus, să nu fie sub header */
+  }
+
+  /* 2. Facem meniul vertical */
+
+  nav ul {
+    /* AICI E LINIA DE COD: */
+    flex-direction: column;
+    /* Această linie forțează itemii să stea în coloană */
+
+    gap: 1.5rem;
+    /* Spațiu între itemii din coloană */
+    align-items: center;
+    /* Îi centrează în meniul care glisează */
+  }
+
+  nav ul li a {
+    font-size: 1.25rem;
+    /* Mărim textul link-urilor */
+  }
+
+  .menu-toggle:checked~nav {
+    /* Adu meniul pe ecran */
+    transform: translateX(0);
+  }
+
+  /* 5. (Bonus) Animație 'X' pentru burger */
+  .menu-toggle:checked~.hamburger-icon .line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .menu-toggle:checked~.hamburger-icon .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked~.hamburger-icon .line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  /* 3. Eliminăm spațierea laterală de pe 'main' */
+  main {
+    /* Pe mobil, vrem ca 'main' să ocupe tot ecranul */
+    margin: 1rem 0;
+    /* 1rem sus/jos, 0 stânga/dreapta */
+    padding: 1rem;
+    border-radius: 0;
+    /* Fără colțuri rotunjite, să pară full-screen */
+    box-shadow: none;
+    /* Fără umbră */
+  }
+
+  /* 4. Facem și footer-ul vertical */
+  footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .educatie-item {
+    /* Pe mobil, pune imaginea sub text */
+    flex-direction: column;
+
+    /* aliniază textul la stânga, e mai curat */
+    align-items: flex-start;
+  }
+
+  .educatie-text {
+    width: 100%;
+    /* Să ocupe toată lățimea */
+  }
+
+  .educatie-imagine {
+    width: 100%;
+    margin-top: 1rem;
+    /* Spațiu între text și imagine */
+    justify-content: center;
+    /* Centrează imaginea pe mobil */
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: flex-start;
+    /* Aliniază totul la stânga */
+  }
+
+  /* Asigură-te că imaginea de pe 'About' este full-width pe mobil */
+  /* Folosim o regulă mai specifică decât 'main img' */
+  .about-container img {
+    /* Stilurile mutate de la 'main img' */
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem 0;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  /* 2. Pentru Pagina "Home" - Fă tabelele derulabile */
+  .competente table {
+    display: block;
+    /* Permite 'overflow-x' */
+    overflow-x: auto;
+    /* Adaugă scroll orizontal DOAR tabelelor */
+    white-space: nowrap;
+    /* Previne ruperea textului din celule */
+  }
+
+  /* 3. Pentru Pagina "Contact" - Stackează butoanele formularului */
+  .formular-contact .form-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Micșorează spațiul dintre ele */
+  }
+
+  /* Face butoanele full-width pe mobil */
+  .formular-contact .form-buttons input[type="submit"],
+  .formular-contact .form-buttons input[type="reset"] {
+    width: 100%;
+  }
+
+  .logo-link {
+    display: grid;
+    /* 2 coloane: una pt logo/Comsa, una pt Radu-Dumitru */
+    grid-template-columns: auto 1fr; 
+    /* 2 rânduri */
+    grid-template-rows: auto auto;
+  }
+
+  /* 1. Logo-ul */
+  .logo-link img {
+    /* Rândul 1, Coloana 1 */
+    grid-row: 1 / 2; 
+    grid-column: 1 / 2;
+    height: 40px;
+    
+    /* Aliniem logo-ul la centrul rândului său */
+    align-self: center;
+  }
+
+  /* 2. Prenumele */
+  .nume-prenume {
+    /* Rândul 1, Coloana 2 (lângă logo) */
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin-left: 0px;
+    
+    /* Aliniem prenumele la centrul rândului său */
+    align-self: center;
+  }
+
+  /* 3. Numele */
+  .nume-nume {
+    /* Rândul 2, Coloana 1 (SUB LOGO) */
+    grid-row: 2 / 3;
+    grid-column: 2 / 2; 
+    
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin-left: 0;
+  }
+
+}
+
+/* Aici se închide @media query */
